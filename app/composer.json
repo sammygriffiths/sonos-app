@@ -1,0 +1,18 @@
+{
+    "require": {
+        "silex/silex": "~2.0",
+        "twig/twig": "^1.24",
+        "symfony/twig-bridge": "^3.1",
+        "duncan3dc/sonos": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Griff\\": [
+                "controllers", 
+                "models", 
+                "helpers", 
+                "core"
+            ]
+        }
+    }
+}

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "41185803644f8ccbca946a4a1e79fc26",
-    "content-hash": "32a756951d468258e8a8f06d69d12d97",
+    "hash": "3822a4cd3f7c5f3771bfb06d2043382e",
+    "content-hash": "ca73f374a079cd1c1cdf1edd5e712b54",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -134,16 +134,16 @@
         },
         {
             "name": "duncan3dc/sonos",
-            "version": "1.6.1",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/duncan3dc/sonos.git",
-                "reference": "9845dad3ffcfec75d6c3f81a1948a61cf5270657"
+                "reference": "48d85b757f6482b392ad0c94079f1adeb0085328"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/duncan3dc/sonos/zipball/9845dad3ffcfec75d6c3f81a1948a61cf5270657",
-                "reference": "9845dad3ffcfec75d6c3f81a1948a61cf5270657",
+                "url": "https://api.github.com/repos/duncan3dc/sonos/zipball/48d85b757f6482b392ad0c94079f1adeb0085328",
+                "reference": "48d85b757f6482b392ad0c94079f1adeb0085328",
                 "shasum": ""
             },
             "require": {
@@ -154,12 +154,12 @@
                 "ext-sockets": "*",
                 "guzzlehttp/guzzle": "^6.0",
                 "league/flysystem": "^1.0",
-                "php": ">=5.5.0",
+                "php": ">=5.6.0",
                 "psr/log": "1.0.0"
             },
             "require-dev": {
                 "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^4.8"
+                "phpunit/phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -187,7 +187,7 @@
                 "streaming",
                 "upnp"
             ],
-            "time": "2015-09-16 11:04:41"
+            "time": "2016-03-13 00:18:32"
         },
         {
             "name": "duncan3dc/speaker",

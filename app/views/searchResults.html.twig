@@ -1,0 +1,21 @@
+{% extends "base-template.html.twig" %}
+
+{% block content %}
+    
+    <h1>Tracks</h1>
+    {% for track in tracks %}
+        <li><h1>{{track.name}}</h1><img src="{{track.album.images.1.url}}" /><a href="/add-spotify-track/{{ track.id }}">Add to queue</a></li>
+    {% endfor %}
+
+    {#<h1>Albums</h1>
+    {% for album in albums %}
+        <li><a href="/add-spotify-track/{{ album.id }}">{{album.name}}</a><img src="{{album.images.1.url}}" /></li>
+    {% endfor %}
+
+    <h1>Artists</h1>
+    {% for artist in artists %}
+        <li><a href="/add-spotify-track/{{ artist.id }}">{{artist.name}}</a><img src="{{artist.images.1.url}}" /></li>
+    {% endfor %}#}
+
+
+{% endblock %}

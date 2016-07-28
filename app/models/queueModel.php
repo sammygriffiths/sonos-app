@@ -34,13 +34,12 @@ class QueueModel extends CoreModel
     }
 
     public function resetMostRecent() {
-        return $this->db->query('DELETE FROM latest_track');
+        return $this->db->exec('DELETE FROM latest_track');
     }
 
     public function clear() {
         $this->queue->clear();
-        $this->resetMostRecent();
-        return;
+        return $this->resetMostRecent();
     }
 
     public function addSpotifyTrack($spotifyID) {
@@ -55,9 +54,9 @@ class QueueModel extends CoreModel
             $queuePosition = (int) $this->mostRecent['queue_position'] + 1;
         }
 
-        $this->queue->addTrack($track, $queuePosition);
         $this->resetMostRecent();
         $this->db->query('INSERT INTO latest_track (queue_position, uri) VALUES ('.$queuePosition.', "")');
+        return $this->queue->addTrack($track, $queuePosition);
 
     }
     

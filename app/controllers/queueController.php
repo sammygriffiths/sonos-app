@@ -7,16 +7,16 @@ use \Symfony\Component\HttpFoundation\Request;
 class QueueController extends CoreController
 {
 
-    public function index(Request $request, Application $app) {
-        $this->model->addSpotifyTrack('7yCPwWs66K8Ba5lFuU2bcx');
-    }
-
     public function clear(Request $request, Application $app) {
-        $this->model->clear();
+        return json_encode([
+            'success' => $this->model->clear()
+        ]);
     }
 
     public function resetMostRecent(Request $request, Application $app) {
-        $this->model->resetMostRecent();
+        return json_encode([
+            'success' => $this->model->resetMostRecent()
+        ]);
     }
 
     public function add(Request $request, Application $app) {
@@ -25,7 +25,9 @@ class QueueController extends CoreController
 
         $modelFunction = 'add'.$type.'Track';
 
-        return $this->model->$modelFunction($id);
+        return json_encode([
+            'success' => $this->model->$modelFunction($id)
+        ]);
     }
 
 }

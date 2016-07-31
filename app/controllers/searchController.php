@@ -7,14 +7,13 @@ use \Symfony\Component\HttpFoundation\Request;
 class SearchController extends CoreController
 {
 
-    public function results(Request $request, Application $app) {
+    public function results() {
 
-        $searchTerm = $request->query->get('term');
+        $searchTerm = $this->request->query->get('term');
 
-        $spotifyResults = json_decode(Search::spotify($searchTerm)->getBody());
+        $spotifyResults = Search::spotify($searchTerm, ['track', 'artist']);
 
-        return $app['twig']->render('searchResults.html.twig', [
-            'albums'  => $spotifyResults->albums->items,
+        return $this->app['twig']->render('searchResults.html.twig', [
             'artists' => $spotifyResults->artists->items,
             'tracks'  => $spotifyResults->tracks->items
         ]);

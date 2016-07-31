@@ -2,30 +2,30 @@
 
 namespace Griff;
 
-use \Symfony\Component\HttpFoundation\Request;
+use \Symfony\Component\HttpFoundation\JsonResponse;
 
 class QueueController extends CoreController
 {
 
-    public function clear(Request $request, Application $app) {
-        return json_encode([
+    public function clear() {
+        return new JsonResponse([
             'success' => $this->model->clear()
         ]);
     }
 
-    public function resetMostRecent(Request $request, Application $app) {
-        return json_encode([
+    public function resetMostRecent() {
+        return new JsonResponse([
             'success' => $this->model->resetMostRecent()
         ]);
     }
 
-    public function add(Request $request, Application $app) {
-        $type = ucfirst($request->query->get('type'));
-        $id   = $request->query->get('id');
+    public function add() {
+        $type = ucfirst($this->request->query->get('type'));
+        $id   = $this->request->query->get('id');
 
         $modelFunction = 'add'.$type.'Track';
 
-        return json_encode([
+        return new JsonResponse([
             'success' => $this->model->$modelFunction($id)
         ]);
     }

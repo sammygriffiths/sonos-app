@@ -2,7 +2,6 @@
 
 namespace Griff;
 
-use \GuzzleHttp\Client as GuzzleClient;
 use \SQLite3;
 use \Doctrine\Common\Cache\FilesystemCache as Cache;
 use \duncan3dc\Sonos\Network as Sonos;

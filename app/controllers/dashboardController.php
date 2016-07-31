@@ -7,7 +7,7 @@ use \Symfony\Component\HttpFoundation\Request;
 class DashboardController extends CoreController
 {
 
-    public function index(Request $request, Application $app) {
+    public function index() {
 
         // $cache = new \Doctrine\Common\Cache\FilesystemCache(__DIR__."/../cache/sonos");
         // $sonos = new \duncan3dc\Sonos\Network($cache);
@@ -22,7 +22,7 @@ class DashboardController extends CoreController
         // $controller->getQueue()->addTrack($track);
         // $controller->play();
 
-        return $app['twig']->render('dashboard.html.twig');
+        return $this->app['twig']->render('dashboard.html.twig');
     }
 
 }

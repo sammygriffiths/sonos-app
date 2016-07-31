@@ -1,0 +1,30 @@
+{% extends "base-template.html.twig" %}
+
+{% block content %}
+<a href="/" class="back">Back</a>
+<h1>{{artistInfo.name}}</h1>
+<img src="{{artistInfo.images.2.url}}" />
+
+    <h2>Top Tracks</h2>
+    <ul>
+    {% for track in topTracks.tracks %}
+        <li><h2>{{track.name}}</h2><img src="{{track.album.images.1.url}}" /><br /><a href="/queue/add?type=spotify&id={{ track.id }}" data-id="{{ track.id }}" data-type="spotify" class="add-to-queue">Add to queue</a></li>
+    {% endfor %}
+    </ul>
+
+    <h2>Albums</h2>
+    <!-- <ul> -->
+    {% for album in albums.items %}
+        <!-- <li> -->
+            <h3>{{album.name}}</h3>
+            <img src="{{album.images.2.url}}" />
+            <ul>
+            {% for track in album.tracks.items %}
+                <li><h2>{{track.name}}</h2><br /><a href="/queue/add?type=spotify&id={{track.id}}" data-id="{{track.id}}" data-type="spotify" class="add-to-queue">Add to queue</a></li>
+            {% endfor %}
+            </ul>
+        <!-- </li> -->
+    {% endfor %}
+    <!-- </ul> -->
+
+{% endblock %}

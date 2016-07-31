@@ -2,12 +2,13 @@
 
 {% block content %}
 
-    <form action="/search-results">
-        <input type="text" name="term" id="term">
-        <input type="submit">
-    </form>
+    <input type="checkbox">
+    <a href="/queue/clear/" class="clear-queue">Clear Queue</a>
+    <a href="/queue/reset-most-recent/" class="reset-most-recent">Reset Most Recent</a>
 
-    <a href="/queue/clear/">Clear Queue</a>
-    <a href="/queue/reset-most-recent/">Reset Most Recent</a>
+    <form action="/search/results">
+        <input type="text" name="term" id="term" placeholder="Song Name Here"><br />
+        <input type="submit" value="Search">
+    </form>
 
 {% endblock %}

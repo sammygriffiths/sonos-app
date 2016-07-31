@@ -15,11 +15,11 @@ class Search {
         $result = $client->request('GET', 'https://api.spotify.com/v1/search', [
             'query' => [
                 'q'    => urlencode($searchTerm),
-                'type' => 'album,artist,track'
+                'type' => $types
             ]
         ]);
 
-        return $result;
+        return json_decode($result->getBody());
 
     }
 

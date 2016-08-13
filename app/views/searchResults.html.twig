@@ -3,7 +3,7 @@
 {% block content %}
 
 
-    <a href="/" class="back">Back</a>
+    <!-- <a href="/" class="btn btn-default">Back</a> -->
     
     <!-- <h1>Tracks</h1> -->
     {#<ul>
@@ -18,16 +18,28 @@
     {% endfor %}#}
 
     <!-- <h1>Artists</h1> -->
-    <ul>
+    {#<ul>#}
+    <div class="row">
     {% for artist in artists %}
-        <li>
+        <div class="col-xs-6 col-md-3">
+                <a href="/artist/{{artist.id}}/" class="thumbnail">
+            {% if artist.images is not empty %}
+                    <img src="{{artist.images.1.url}}" alt="{{artist.name}}">
+            {% else %}
+                    <img src="/assets/img/no_image_available.svg">
+            {% endif %}
+                    <div class="caption"><h3>{{artist.name}}</h3></div>
+                </a>
+        {#<li>
             <a href="/artist/{{artist.id}}/">{{artist.name}}</a>
             {% if artist.images is not empty %}
             <img src="{{artist.images.0.url}}" />
             {% endif %}
-        </li>
+        </li>#}
+        </div>
     {% endfor %}
-    </ul>
+    </div>
+    {#</ul>#}
 
 
 {% endblock %}

@@ -1,30 +1,41 @@
 {% extends "base-template.html.twig" %}
 
 {% block content %}
-<a href="/" class="back">Back</a>
-<h1>{{artistInfo.name}}</h1>
-<img src="{{artistInfo.images.2.url}}" />
 
-    <h2>Top Tracks</h2>
-    <ul>
+<div class="row jumbotron artist hidden-sm hidden-xs">
+    <img src="{{artistInfo.images.2.url}}" />
+    <h1>{{artistInfo.name}}</h1>
+</div>
+
+<h1 class="hidden-md hidden-lg">{{artistInfo.name}}</h1>
+
+    <h4>Top Tracks</h4>
+    <ul class="list-group">
     {% for track in topTracks.tracks %}
-        <li><h2>{{track.name}}</h2><img src="{{track.album.images.1.url}}" /><br /><a href="/queue/add?type=spotify&id={{ track.id }}" data-id="{{ track.id }}" data-type="spotify" class="add-to-queue">Add to queue</a></li>
+        <li class="list-group-item track">
+            <img src="{{track.album.images.2.url}}" class="hidden-sm hidden-xs" />
+            <strong class="title">{{track.name}}</strong>
+            <a href="/queue/add?type=spotify&id={{ track.id }}" data-id="{{ track.id }}" title="Add to queue" data-type="spotify" class="add-to-queue"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+        </li>
     {% endfor %}
     </ul>
 
-    <h2>Albums</h2>
-    <!-- <ul> -->
+    <h4>Albums</h4>
     {% for album in albums.items %}
-        <!-- <li> -->
-            <h3>{{album.name}}</h3>
+    <div class="album">
+        <header class="title">
             <img src="{{album.images.2.url}}" />
-            <ul>
-            {% for track in album.tracks.items %}
-                <li><h2>{{track.name}}</h2><br /><a href="/queue/add?type=spotify&id={{track.id}}" data-id="{{track.id}}" data-type="spotify" class="add-to-queue">Add to queue</a></li>
-            {% endfor %}
-            </ul>
-        <!-- </li> -->
+            <h2>{{album.name}}</h2>
+        </header>
+        <ul class="list-group">
+        {% for track in album.tracks.items %}
+            <li class="list-group-item track">
+                <strong class="title">{{track.name}}</strong>
+                <a href="/queue/add?type=spotify&id={{track.id}}" data-id="{{track.id}}" title="Add to queue" data-type="spotify" class="add-to-queue"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
     {% endfor %}
-    <!-- </ul> -->
 
 {% endblock %}

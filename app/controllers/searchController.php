@@ -10,6 +10,7 @@ class SearchController extends CoreController
     public function results() {
 
         $searchTerm = $this->request->query->get('term');
+        $searchTerm = $this->model->formatSearchTerm($searchTerm);
 
         $spotifyResults = Search::spotify($searchTerm, ['track', 'artist']);
 

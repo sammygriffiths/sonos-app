@@ -39,6 +39,17 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
                         <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>    <form action="/search/results" class="text-center search">
+        <div class="form-group">
+            <input type="text" class="form-control" name="term" id="term" placeholder="Bangin' choooooonz m8...">
+            <input type="submit" value="Search" class="btn btn-success">
+        </div>
+    </form></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/queue/clear/" class="clear-queue">Clear Queue</a></li>

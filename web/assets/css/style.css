@@ -1,3 +1,7 @@
+img{
+    max-width: 100%;
+}
+
 .navbar{
     border-radius: 0;
 }
@@ -10,4 +14,28 @@ form.search .btn{
     margin-top: 30px;
     padding-right: 30px;
     padding-left: 30px;
+}
+
+.track img{
+    margin-right: 10px;
+}
+
+.track .title{
+    margin-right: 5px;
+}
+
+.jumbotron.artist h1{
+    display: inline;
+    margin: 0 0 0 100px;
+    vertical-align: middle;
+}
+
+.album .title{
+    margin-bottom: 10px;
+}
+
+.album .title h2{
+    display: inline;
+    margin-left: 20px;
+    vertical-align: middle;
 }

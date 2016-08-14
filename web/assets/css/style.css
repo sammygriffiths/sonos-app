@@ -26,7 +26,7 @@ form.search .btn{
 }
 
 .track img{
-    margin-right: 10px;
+    margin: -10px 10px -10px 0;
 }
 
 .track .add-to-queue{ 

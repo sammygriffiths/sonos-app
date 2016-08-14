@@ -13,6 +13,7 @@ $app->get('/{route}', function (Request $request, $route) use ($app) {
     $route = explode('/', $route);
 
     $controller = (!empty($route[0])) ? $route[0] : 'dashboard';
+    $controller = ucfirst($controller);
     unset($route[0]);
 
     $method = (!empty($route[1])) ? $route[1] : 'index';

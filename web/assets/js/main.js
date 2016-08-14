@@ -23,7 +23,7 @@ GriffSonos.Queue = {
     },
 
     resetMostRecent: function(url){
-        $.get("/queue/reset-most-recent/", function(data) {
+        $.get("/queue/resetmostrecent/", function(data) {
             if (data.success) {
                 alert('Reset record of most recently added track');
             }
@@ -52,8 +52,8 @@ GriffSonos.Queue = {
 
         $('.add-to-queue').click(function(e){
             e.preventDefault();
-            var type = $(this).attr('data-type');
-            var id   = $(this).attr('data-id');
+            var type = $(this).data('type');
+            var id   = $(this).data('id');
             self.addToQueue(type, id);
         });
     }

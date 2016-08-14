@@ -1,0 +1,12 @@
+<li class="list-group-item track">
+    {% if includeImage %}
+    <img src="{{track.album.images.2.url}}" class="hidden-sm hidden-xs" />
+    {% endif %}
+    <strong class="title">{{track.name}}</strong>
+    {% for trackArtist in track.artists %}
+        {% if trackArtist.id != artistId %}
+    <span class="track-artist"><a href="/artist/{{trackArtist.id}}/">{{trackArtist.name}}</a></span>
+        {% endif %}
+    {% endfor %}
+    <a href="/queue/add?type=spotify&id={{track.id}}" data-id="{{track.id}}" title="Add to queue" data-type="spotify" class="add-to-queue btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><span class="hidden-sm hidden-xs"> Add to queue</span></a>
+</li>

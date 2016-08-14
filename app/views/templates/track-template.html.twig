@@ -1,5 +1,5 @@
 <li class="list-group-item track">
-    {% if includeImage %}
+    {% if includeImage and track.album.images is not empty %}
     <img src="{{track.album.images.2.url}}" class="hidden-sm hidden-xs" />
     {% endif %}
     <strong class="title">{{track.name}}</strong>

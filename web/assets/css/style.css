@@ -16,6 +16,31 @@ form.search .btn{
     padding-left: 30px;
 }
 
+.dropdown-menu form.search{
+    margin-top: 15px;
+    width: 600px;
+    max-width: 100%;
+    padding: 0 10px;
+}
+
+.dropdown-menu form.search input{
+    display: inline-block;
+}
+
+.dropdown-menu form.search input[type="text"]{
+    width: 60%;
+    margin-right: 5%;
+}
+
+.dropdown-menu form.search button{
+    margin-top: 0;
+    max-width: 30%;
+}
+
+#dashboard .dropdown.search{
+    display: none;
+}
+
 .track{
     padding: 22px 25% 22px 10px;
     position: relative;

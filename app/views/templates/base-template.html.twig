@@ -24,7 +24,7 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body{% if bodyID is defined %} id="{{bodyID}}"{% endif %}>
         <div class="navbar navbar-inverse">
             <div class="container">
                 <div class="navbar-header">
@@ -38,15 +38,17 @@
                 <div class="navbar-collapse collapse" id="navbar-main">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
-                        <li class="dropdown">
+                        <li class="dropdown search">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
                             <ul class="dropdown-menu">
-                                <li>    <form action="/search/results" class="text-center search">
-        <div class="form-group">
-            <input type="text" class="form-control" name="term" id="term" placeholder="Bangin' choooooonz m8...">
-            <input type="submit" value="Search" class="btn btn-success">
-        </div>
-    </form></li>
+                                <li>    
+                                    <form action="/search/results" class="text-center search">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="term" id="term" placeholder="Search...">
+                                            <button class="btn btn-default"><span class="hidden-sm hidden-xs">Search</span><span class="hidden-md hidden-lg glyphicon glyphicon-search"></span></button>
+                                        </div>
+                                    </form>
+                                </li>
                             </ul>
                         </li>
                         <li class="dropdown">

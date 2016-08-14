@@ -16,12 +16,24 @@ form.search .btn{
     padding-left: 30px;
 }
 
+.track{
+    padding: 22px 25% 22px 10px;
+    position: relative;
+}
+
+.track:hover{
+    background: #EEEEEE;
+}
+
 .track img{
     margin-right: 10px;
 }
 
-.track .title{
-    margin-right: 5px;
+.track .add-to-queue{ 
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .jumbotron.artist h1{
@@ -30,12 +42,24 @@ form.search .btn{
     vertical-align: middle;
 }
 
-.album .title{
+.album header.title{
     margin-bottom: 10px;
 }
 
-.album .title h2{
+.album header.title h2{
     display: inline;
     margin-left: 20px;
     vertical-align: middle;
+}
+
+.track-artist:first-of-type:before{
+    content: '- ';
+}
+
+.track-artist:after{
+    content: ',';
+}
+
+.track-artist:last-of-type:after{
+    content: '';
 }

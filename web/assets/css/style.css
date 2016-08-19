@@ -76,12 +76,16 @@ form.search .btn{
     vertical-align: middle;
 }
 
-.album header.title h2{
+.album header.title h2, .album header.title h4{
     margin: 0;
     display: inline-block;
     margin-left: 20px;
     vertical-align: middle;
-    max-width: 65%;
+    max-width: 80%;
+}
+
+.album header.title h4{
+    max-width: 60%;
 }
 
 .track-artist:first-of-type:before{

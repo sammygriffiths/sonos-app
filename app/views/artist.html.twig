@@ -31,7 +31,8 @@
                 <img src="{{album.images.2.url}}" />
             </div>
             {% endif %}
-            <h2>{{album.name}}</h2>
+            <h2 class="hidden-xs">{{album.name}}</h2>
+            <h4 class="visible-xs-inline-block">{{album.name}}</h4>
         </header>
         <ul class="list-group">
         {% for track in album.tracks.items %}

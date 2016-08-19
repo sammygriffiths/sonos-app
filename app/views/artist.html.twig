@@ -27,7 +27,9 @@
     <div class="album">
         <header class="title">
             {% if album.images is not empty %}
-            <img src="{{album.images.2.url}}" />
+            <div>
+                <img src="{{album.images.2.url}}" />
+            </div>
             {% endif %}
             <h2>{{album.name}}</h2>
         </header>

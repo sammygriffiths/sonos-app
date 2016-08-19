@@ -7,7 +7,49 @@ GriffSonos.run = function(){
     $(document).ready(function(){
         GriffSonos.functions();
     });
+
+    $(document).ajaxStart(function(){
+        GriffSonos.Ajax.start();
+    });
+
+    $(document).ajaxStop(function(){
+        GriffSonos.Ajax.stop();
+    });
+
+    $(document).ajaxSuccess(function(){
+        GriffSonos.Ajax.success();
+    });
+
+    $(document).ajaxError(function(){
+        GriffSonos.Ajax.error();
+    });
 };
+
+GriffSonos.Ajax = {
+    start: function(){
+        var img = "/assets/img/spin.svg";
+        $('body').prepend('<div class="ajax-loader"><img src="'+img+'" /></div>');
+        $('.ajax-loader').hide().fadeIn();
+    },
+
+    stop: function(){
+        setTimeout(function(){
+            $('.ajax-loader').fadeOut(400, function(){
+                $(this).remove();
+            });
+        }, 1000);
+    },
+
+    success: function(){
+        $('.ajax-loader img').remove();
+        $('.ajax-loader').append('<span class="glyphicon glyphicon-ok text-success"></span>');
+    },
+
+    error: function(){
+        $('.ajax-loader img').remove();
+        $('.ajax-loader').append('<span class="glyphicon glyphicon-remove text-danger"></span>');
+    }
+}
 
 GriffSonos.Queue = {
     init: function(){
@@ -31,23 +73,21 @@ GriffSonos.Queue = {
     },
 
     addToQueue: function(type, id) {
-        $.get("/queue/add/", {type: type, id: id}).done(function(data) {
-            if (data.success) {
-                alert('Added song');
-            }
-        });
+        $.get("/queue/add/", {type: type, id: id});
     },
 
     bindUIActions: function(){
         var self = this;
         $('.clear-queue').click(function(e){
             e.preventDefault();
-            self.clearQueue();
+            var url = $(this).attr('href');
+            $.get(url);
         });
 
         $('.reset-most-recent').click(function(e){
             e.preventDefault();
-            self.resetMostRecent();
+            var url = $(this).attr('href');
+            $.get(url);
         });
 
         $('.add-to-queue').click(function(e){

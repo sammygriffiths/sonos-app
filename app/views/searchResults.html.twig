@@ -1,8 +1,11 @@
 {% extends "base-template.html.twig" %}
 
 {% block content %}
-
+    
+    {% if artists is not empty %}
+    {% if tracks is not empty %}
     <h4>Artists</h4>
+    {% endif %}
     <div class="row">
     {% for artist in artists %}
         <div class="col-xs-6 col-md-3">
@@ -17,8 +20,12 @@
         </div>
     {% endfor %}
     </div>
+    {% endif %}
     
+    {% if tracks is not empty %}
+    {% if artists is not empty %}
     <h4>Songs</h4>
+    {% endif %}
     <ul class="list-group">
     {% for track in tracks %}
 
@@ -29,6 +36,7 @@
         } %}
     {% endfor %}
     </ul>
+    {% endif %}
 
     {#<h1>Albums</h1>
     {% for album in albums %}

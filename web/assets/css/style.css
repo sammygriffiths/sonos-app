@@ -117,8 +117,9 @@ form.search .btn{
 
 .ajax-loader *{
     font-size: 150px;
-    position: relative;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translateY(50%);
+    transform: translateX(-50%);
 }

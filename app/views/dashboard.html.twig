@@ -1,5 +1,15 @@
 {% extends "base-template.html.twig" %}
 
+{% set bodyID = 'dashboard' %}
+
 {% block content %}
+
+    <form action="/search/results" class="text-center search">
+        <div class="form-group form-group-lg">
+            <input type="text" class="form-control" name="term" id="term" placeholder="Search...">
+            <input type="submit" value="Search" class="btn btn-success">
+        </div>
+    </form>
+
 
 {% endblock %}

@@ -1,1 +1,1 @@
-A basic silex install, setup how I like.
+Do some stuff with sonos

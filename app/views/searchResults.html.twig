@@ -1,0 +1,46 @@
+{% extends "base-template.html.twig" %}
+
+{% block content %}
+    
+    {% if artists is not empty %}
+    {% if tracks is not empty %}
+    <h4>Artists</h4>
+    {% endif %}
+    <div class="row">
+    {% for artist in artists %}
+        <div class="col-xs-6 col-md-3">
+            <a href="/artist/{{artist.id}}/" class="thumbnail">
+        {% if artist.images is not empty %}
+                <img src="{{artist.images.1.url}}" alt="{{artist.name}}">
+        {% else %}
+                <img src="/assets/img/no_image_available.svg">
+        {% endif %}
+                <div class="caption"><h3>{{artist.name}}</h3></div>
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    
+    {% if tracks is not empty %}
+    {% if artists is not empty %}
+    <h4>Songs</h4>
+    {% endif %}
+    <ul class="list-group">
+    {% for track in tracks %}
+
+        {% include 'track-template.html.twig' with {
+            track: track,
+            artistId: '',
+            includeImage: true
+        } %}
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    {#<h1>Albums</h1>
+    {% for album in albums %}
+        <li><a href="/add-spotify-track/{{ album.id }}">{{album.name}}</a><img src="{{album.images.1.url}}" /></li>
+    {% endfor %}#}
+
+{% endblock %}

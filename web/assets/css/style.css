@@ -1,0 +1,124 @@
+img{
+    max-width: 100%;
+}
+
+.navbar{
+    border-radius: 0;
+}
+
+form.search{
+    margin-top: 100px;
+}
+
+form.search .btn{
+    margin-top: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.dropdown-menu form.search{
+    margin-top: 15px;
+    width: 600px;
+    max-width: 100%;
+    padding: 0 10px;
+}
+
+.dropdown-menu form.search input{
+    display: inline-block;
+}
+
+.dropdown-menu form.search input[type="text"]{
+    width: 60%;
+    margin-right: 5%;
+}
+
+.dropdown-menu form.search button{
+    margin-top: 0;
+    max-width: 30%;
+}
+
+#dashboard .dropdown.search{
+    display: none;
+}
+
+.track{
+    padding: 22px 25% 22px 10px;
+    position: relative;
+}
+
+.track:hover{
+    background: #EEEEEE;
+}
+
+.track img{
+    margin: -10px 10px -10px 0;
+}
+
+.track .add-to-queue{ 
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.jumbotron.artist h1{
+    display: inline;
+    margin: 0 0 0 100px;
+    vertical-align: middle;
+}
+
+.album header.title{
+    margin-bottom: 10px;
+}
+
+.album header.title div{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.album header.title h2, .album header.title h4{
+    margin: 0;
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: middle;
+    max-width: 80%;
+}
+
+.album header.title h4{
+    max-width: 60%;
+}
+
+.track-artist:first-of-type:before{
+    content: '- ';
+}
+
+.track-artist:after{
+    content: ',';
+}
+
+.track-artist:last-of-type:after{
+    content: '';
+}
+
+.ajax-loader{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(51,51,51,0.8);
+    z-index: 1000;
+    text-align: center;
+}
+
+.ajax-loader img{
+    height: 40%;
+}
+
+.ajax-loader *{
+    font-size: 150px;
+    position: relative;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}

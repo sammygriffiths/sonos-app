@@ -1,0 +1,49 @@
+{% extends "base-template.html.twig" %}
+
+{% block content %}
+
+<div class="row jumbotron artist hidden-sm hidden-xs">
+    {% if artistInfo.images is not empty %}
+    <img src="{{artistInfo.images.2.url}}" />
+    {% endif %}
+    <h1>{{artistInfo.name}}</h1>
+</div>
+
+<h1 class="hidden-md hidden-lg">{{artistInfo.name}}</h1>
+
+    <h4>Top Tracks</h4>
+    <ul class="list-group">
+    {% for track in topTracks.tracks %}
+        {% include 'track-template.html.twig' with {
+            track: track,
+            artistId: artistInfo.id,
+            includeImage: true
+        } %}
+    {% endfor %}
+    </ul>
+
+    <h4>Albums</h4>
+    {% for album in albums.items %}
+    <div class="album">
+        <header class="title">
+            {% if album.images is not empty %}
+            <div>
+                <img src="{{album.images.2.url}}" />
+            </div>
+            {% endif %}
+            <h2 class="hidden-xs">{{album.name}}</h2>
+            <h4 class="visible-xs-inline-block">{{album.name}}</h4>
+        </header>
+        <ul class="list-group">
+        {% for track in album.tracks.items %}
+        {% include 'track-template.html.twig' with {
+            track: track,
+            artistId: artistInfo.id,
+            includeImage: false
+        } %}
+        {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+
+{% endblock %}

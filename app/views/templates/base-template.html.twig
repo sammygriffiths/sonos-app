@@ -6,6 +6,8 @@
         <title>Bangin' Choonz</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
         <meta name="author" content="Sammy Griffiths"> 
 
         <!-- <link rel="icon" type="image/png" href="/favicon.png"> -->
@@ -54,8 +56,8 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/queue/clear/" class="clear-queue">Clear Queue</a></li>
-                                <li><a href="/queue/resetmostrecent/" class="reset-most-recent">Reset Most Recent</a></li>
+                                <li><a href="/queue/clear/" data-ajax="true" class="clear-queue">Clear Queue</a></li>
+                                <li><a href="/queue/resetmostrecent/" data-ajax="true" class="reset-most-recent">Reset Most Recent</a></li>
                             </ul>
                         </li>
                     </ul>

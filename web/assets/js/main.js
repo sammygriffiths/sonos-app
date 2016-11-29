@@ -29,24 +29,23 @@ GriffSonos.Ajax = {
     start: function(){
         var img = "/assets/img/spin.svg";
         $('body').prepend('<div class="ajax-loader"><img src="'+img+'" /></div>');
-        $('.ajax-loader').hide().fadeIn();
+        GriffSonos.loader.show();
     },
 
     stop: function(){
         setTimeout(function(){
-            $('.ajax-loader').fadeOut(400, function(){
-                $(this).remove();
-            });
+            GriffSonos.loader.hide();
+            $('.ajax-loader .glyphicon').remove();
         }, 1000);
     },
 
     success: function(){
-        $('.ajax-loader img').remove();
+        $('.ajax-loader img').hide();
         $('.ajax-loader').append('<span class="glyphicon glyphicon-ok text-success"></span>');
     },
 
     error: function(){
-        $('.ajax-loader img').remove();
+        $('.ajax-loader img').hide();
         $('.ajax-loader').append('<span class="glyphicon glyphicon-remove text-danger"></span>');
     }
 }
@@ -99,7 +98,43 @@ GriffSonos.Queue = {
     }
 };
 
+GriffSonos.loader = {
+    init: function(){
+        var img = "/assets/img/spin.svg";
+        $('body').prepend('<div class="ajax-loader"><img src="'+img+'" /></div>');
+        $('.ajax-loader').hide();
+    },
+
+    show: function(){
+        $('.ajax-loader').fadeIn();
+    },
+
+    hide: function(){
+        $('.ajax-loader').fadeOut();   
+    }
+};
+
+GriffSonos.links = {
+    init: function(){
+        this.bindUIActions();
+    },
+
+    bindUIActions: function(){
+        $('a:not([href="#"]):not([data-ajax])').click(function(e){
+            // e.preventDefault();
+            GriffSonos.loader.show();
+            // location.href = $(this).attr("href");
+        });   
+
+        $('form').submit(function(){
+            GriffSonos.loader.show();
+        });
+    }
+}
+
 GriffSonos.functions = function(){
+    GriffSonos.loader.init();
+    GriffSonos.links.init();
     GriffSonos.Queue.init();
 };
 

@@ -27,15 +27,12 @@ GriffSonos.run = function(){
 
 GriffSonos.Ajax = {
     start: function(){
-        var img = "/assets/img/spin.svg";
-        $('body').prepend('<div class="ajax-loader"><img src="'+img+'" /></div>');
         GriffSonos.loader.show();
     },
 
     stop: function(){
         setTimeout(function(){
             GriffSonos.loader.hide();
-            $('.ajax-loader .glyphicon').remove();
         }, 1000);
     },
 
@@ -110,7 +107,10 @@ GriffSonos.loader = {
     },
 
     hide: function(){
-        $('.ajax-loader').fadeOut();   
+        $('.ajax-loader').fadeOut(400, function(){
+            $('.ajax-loader .glyphicon').remove();
+            $('.ajax-loader img').removeAttr('style');
+        });   
     }
 };
 

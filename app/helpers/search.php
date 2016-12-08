@@ -14,7 +14,7 @@ class Search {
 
         $result = $client->request('GET', 'https://api.spotify.com/v1/search', [
             'query' => [
-                'q'    => '"'.$searchTerm.'" OR "'.str_replace(' ', '', $searchTerm).'"',
+                'q'    => $searchTerm,
                 'type' => $types
             ]
         ]);

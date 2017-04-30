@@ -1,4 +1,4 @@
-![Version 0.9.1](https://img.shields.io/badge/version-0.9.1-00c7b1.svg?style=flat)
+![Version 0.9.2](https://img.shields.io/badge/version-0.9.2-00c7b1.svg?style=flat)
 
 Uses the Spotify API to find songs, then allows them to be added to a queue (using SQLite3) which will be added to the top of the native Sonos queue. 
 

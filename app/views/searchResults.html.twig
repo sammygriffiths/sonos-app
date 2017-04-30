@@ -3,9 +3,7 @@
 {% block content %}
     
     {% if artists is not empty %}
-    {% if tracks is not empty %}
     <h4>Artists</h4>
-    {% endif %}
     <div class="row">
     {% for artist in artists %}
         <div class="col-xs-6 col-md-3">
@@ -23,9 +21,7 @@
     {% endif %}
     
     {% if tracks is not empty %}
-    {% if artists is not empty %}
     <h4>Songs</h4>
-    {% endif %}
     <ul class="list-group">
     {% for track in tracks %}
 
@@ -42,5 +38,11 @@
     {% for album in albums %}
         <li><a href="/add-spotify-track/{{ album.id }}">{{album.name}}</a><img src="{{album.images.1.url}}" /></li>
     {% endfor %}#}
+
+    {% if artists is empty and tracks is empty %}
+    {% include 'no-results.html.twig' with {
+        searchTerm: searchTerm
+    } %}
+    {% endif %}
 
 {% endblock %}

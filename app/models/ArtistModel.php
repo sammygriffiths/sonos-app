@@ -15,13 +15,21 @@ class ArtistModel extends CoreModel
     }
 
     public function getAristInfo() {
-        $artistInfo = $this->client->request('GET', 'https://api.spotify.com/v1/artists/'.$this->artistID.'/')->getBody();
+        $artistInfo = $this->client->request('GET', 'https://api.spotify.com/v1/artists/'.$this->artistID.'/', [
+            'headers' => [
+              'Authorization' => 'Bearer '.Spotify::getAccessToken()
+            ]
+        ])->getBody();
 
         return json_decode($artistInfo);
     }
 
     public function getTopTracks($country = 'GB') {
-        $topTracks = $this->client->request('GET', 'https://api.spotify.com/v1/artists/'.$this->artistID.'/top-tracks?country='.$country)->getBody();
+        $topTracks = $this->client->request('GET', 'https://api.spotify.com/v1/artists/'.$this->artistID.'/top-tracks?country='.$country, [
+            'headers' => [
+              'Authorization' => 'Bearer '.Spotify::getAccessToken()
+            ]
+        ])->getBody();
 
         return json_decode($topTracks);
     }
@@ -30,6 +38,9 @@ class ArtistModel extends CoreModel
         $albums = $this->client->request('GET', 'https://api.spotify.com/v1/artists/'.$this->artistID.'/albums/',  [
             'query' => [
                 'market' => 'GB',
+            ],
+            'headers' => [
+              'Authorization' => 'Bearer '.Spotify::getAccessToken()
             ]
         ])->getBody();
         $albums = json_decode($albums);

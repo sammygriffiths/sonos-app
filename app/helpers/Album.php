@@ -13,6 +13,9 @@ class Album {
         $result = $client->request('GET', 'https://api.spotify.com/v1/albums/'.$albumID.'/tracks', [
             'query' => [
                 'market' => $country
+            ],
+            'headers' => [
+              'Authorization' => 'Bearer '.Spotify::getAccessToken()
             ]
         ]);
 
@@ -27,6 +30,9 @@ class Album {
         $result = $client->request('GET', 'https://api.spotify.com/v1/albums/'.$albumID, [
             'query' => [
                 'market' => $country
+            ],
+            'headers' => [
+              'Authorization' => 'Bearer '.Spotify::getAccessToken()
             ]
         ]);
 

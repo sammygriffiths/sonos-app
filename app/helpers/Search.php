@@ -15,7 +15,11 @@ class Search {
         $result = $client->request('GET', 'https://api.spotify.com/v1/search', [
             'query' => [
                 'q'    => $searchTerm,
-                'type' => $types
+                'type' => $types,
+                'market' => 'GB',
+            ],
+            'headers' => [
+              'Authorization' => 'Bearer '.Spotify::getAccessToken()
             ]
         ]);
 

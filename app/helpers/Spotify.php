@@ -15,7 +15,7 @@ class Spotify
     return Cache::get_instance()->get('access_token');
   }
 
-  public static function refreshAccessToken()
+  private static function refreshAccessToken()
   {
     $refresh_token = Cache::get_instance()->get('refresh_token');
     $client = new GuzzleClient();
@@ -25,13 +25,22 @@ class Spotify
         'refresh_token' => $refresh_token
       ],
       'headers' => [
-        'Authorization' => 'Basic ***REMOVED***'
+        'Authorization' => self::getBasicAuthorisation()
       ]
     ])->getBody()->getContents();
 
     $access_token = json_decode($access_token);
-    Cache::get_instance()->set('access_token', $access_token->access_token, 3600);
+    Cache::get_instance()->set('access_token', $access_token->access_token, $access_token->expires_in);
 
-    return self::getAccessToken();
+    return $access_token->access_token;
+  }
+
+  public static function getBasicAuthorisation()
+  {
+    $client_id = Config::get('spotify_client_id');
+    $client_secret = Config::get('spotify_client_secret');
+    $auth_string = base64_encode($client_id.':'.$client_secret);
+
+    return 'Basic '.$auth_string;
   }
 }

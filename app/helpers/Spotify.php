@@ -37,8 +37,8 @@ class Spotify
 
   public static function getBasicAuthorisation()
   {
-    $client_id = Config::get('spotify_client_id');
-    $client_secret = Config::get('spotify_client_secret');
+    $client_id = $_ENV['SPOTIFY_CLIENT_ID'];
+    $client_secret = $_ENV['SPOTIFY_CLIENT_SECRET'];
     $auth_string = base64_encode($client_id.':'.$client_secret);
 
     return 'Basic '.$auth_string;

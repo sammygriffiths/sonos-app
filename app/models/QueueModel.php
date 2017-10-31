@@ -4,7 +4,9 @@ namespace Griff;
 
 use \SQLite3;
 use \Doctrine\Common\Cache\FilesystemCache as Cache;
-use \duncan3dc\Sonos\Network as Sonos;
+use \duncan3dc\Sonos\Speaker as SonosSpeaker;
+use \duncan3dc\Sonos\Network as SonosNetwork;
+use \duncan3dc\Sonos\Controller as SonosController;
 use \duncan3dc\Sonos\Tracks\Spotify;
 
 class QueueModel extends CoreModel
@@ -13,15 +15,17 @@ class QueueModel extends CoreModel
     private $mostRecent;
     private $sonosCacheFile;
     private $sonos;
+    private $sonosNetwork;
     private $sonosController;
     private $queue;
     private $nowPlaying;
 
-    public function __construct($roomName = 'Media Room') {
+    public function __construct() {
         $this->db = new SQLite3(__DIR__.'/../data/latest_track.db');
         $this->sonosCacheFile = new Cache(__DIR__."/../cache/sonos");
-        $this->sonos = new Sonos($this->sonosCacheFile);
-        $this->sonosController = $this->sonos->getControllerByRoom($roomName);
+        $this->sonosNetwork = new SonosNetwork($this->sonosCacheFile);
+        $this->sonos = new SonosSpeaker($_ENV['SONOS_IP']);
+        $this->sonosController = new SonosController($this->sonos, $this->sonosNetwork);
         $this->queue = $this->sonosController->getQueue();
         $this->nowPlaying = $this->sonosController->getStateDetails();
         $this->mostRecent = $this->getMostRecent();
